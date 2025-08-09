@@ -61,7 +61,7 @@ pip install requests beautifulsoup4 openpyxl
 加入粉丝群，获取本人对项目进度与开发、问题答疑和技术交流！
 
 * QQ 交流群:
-  * 本人QQ[粉丝群](点击链接加入群聊【莲儿的米奇妙妙屋】：https://qm.qq.com/q/ufcprjrHl6)可加入聊天潜水
+  * 本人QQ[粉丝群](https://qm.qq.com/q/ufcprjrHl6)可加入聊天潜水
 
 
 > **提问前请先查看**: 加入Q群前，请先查看[项目问题列表](https://github.com/CivilianBronya/bilibili-data-extractor/issues)，看是否能解决你的问题。
