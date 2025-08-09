@@ -64,7 +64,7 @@ pip install requests beautifulsoup4 openpyxl
   * 本人QQ[粉丝群](点击链接加入群聊【莲儿的米奇妙妙屋】：https://qm.qq.com/q/ufcprjrHl6)可加入聊天潜水
 
 
-> **提问前请先查看**: 加入Q群前，请先查看[项目问题列表](https://github.com/lss233/kirara-ai/issues)，看是否能解决你的问题。
+> **提问前请先查看**: 加入Q群前，请先查看[项目问题列表](https://github.com/CivilianBronya/bilibili-data-extractor/issues)，看是否能解决你的问题。
 > 
 > 如需提问，请准备好问题描述、**完整日志**和相关配置文件，以便更好地帮助到你！
 > 进群请备注：GitHub
