@@ -25,7 +25,7 @@
     <img src="https://img.shields.io/github/license/CivilianBronya/bilibili-data-extractor?color=C06C84&style=for-the-badge" alt="License">
   </a>
   <a href="https://qm.qq.com/q/PFcfb4296m">
-    <img src="https://img.shields.io/badge/QQ%E7%BE%A4-1002495699-blue?style=flat-square" alt="QQ Group">
+    <img src="https://img.shields.io/badge/QQ%E7%BE%A4-1002495699-blue?style=for-the-badge" alt="QQ Group">
   </a>
 </p>
 
