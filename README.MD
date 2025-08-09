@@ -8,7 +8,14 @@
     <br/>
   </p>
 </p>
-
+<p align="center">
+  <a href="https://github.com/CivilianBronya/bilibili-data-extractor/stargazers">
+    <img src="https://img.shields.io/github/stars/CivilianBronya/bilibili-data-extractor?color=F8B195&logo=github&style=for-the-badge" alt="Github stars">
+  </a>
+  <a href="https://github.com/CivilianBronya/bilibili-data-extractor/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/CivilianBronya/bilibili-data-extractor?color=C06C84&style=for-the-badge" alt="License">
+  </a>
+</p>
 
 
 ---
@@ -25,9 +32,14 @@
 ---
 
 ## 🛠 快速开始
+### 获取项目
+- 通过git拉取到自己的本地，通过python运行
+
+```bash
+https://github.com/CivilianBronya/bilibili-data-extractor.git
+```
 
 ### 环境准备
-
 - Python 3.8+
 - 依赖库：`requests`, `beautifulsoup4`, `openpyxl`
 
