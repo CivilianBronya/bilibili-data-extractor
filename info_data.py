@@ -21,15 +21,6 @@ def load_or_create_workbook(file_path):
         init_excel(file_path)
     return load_workbook(file_path)
 
-def get_existing_links(ws):
-    """读取已有链接，避免重复写入"""
-    links = set()
-    link_col = HEADERS.index("链接") + 1
-    for row in ws.iter_rows(min_row=2, values_only=True):
-        if row and row[link_col - 1]:
-            links.add(row[link_col - 1])
-    return links
-
 def sanitize_value(value):
     """处理写入Excel的值，列表转字符串，None转空字符串"""
     if isinstance(value, list):
@@ -47,41 +38,45 @@ def to_int(value):
 
 def append_video_info(file_path, video_info: dict):
     """
-    写入视频信息到Excel，自动去重，添加爬取时间
+    写入视频信息到Excel，保留历史记录（不去重）
     :param file_path: Excel文件路径
     :param video_info: dict，视频信息字段应对应HEADERS
-    :return: True写入成功，False跳过重复
     """
-    wb = load_or_create_workbook(file_path)
-    ws = wb.active
+    try:
+        wb = load_or_create_workbook(file_path)
+        ws = wb.active
 
-    existing_links = get_existing_links(ws)
-    link = video_info.get("url", "")
-    if link in existing_links:
-        print(f"[Excel] 跳过已存在的视频链接: {link}")
+        # 调试输出，确认传入数据
+        print(f"[DEBUG] 准备写入 Excel: {video_info.get('url')}")
+        print(f"[DEBUG] 标题: {video_info.get('title')}")
+        print(f"[DEBUG] 播放量: {video_info.get('views')}, 点赞: {video_info.get('likes')}")
+
+        values = [
+            sanitize_value(video_info.get("title", "")),
+            sanitize_value(video_info.get("url", "")),
+            sanitize_value(video_info.get("author", "")),
+            sanitize_value(video_info.get("author_id", "")),
+            to_int(video_info.get("views")),
+            to_int(video_info.get("danmaku")),
+            to_int(video_info.get("likes")),
+            to_int(video_info.get("coins")),
+            to_int(video_info.get("favorites")),
+            to_int(video_info.get("shares")),
+            sanitize_value(video_info.get("publish_date", "")),
+            to_int(video_info.get("duration")),
+            sanitize_value(video_info.get("video_desc", "")),
+            sanitize_value(video_info.get("author_desc", "")),
+            sanitize_value(video_info.get("tags", "")),
+            sanitize_value(video_info.get("video_aid", "")),
+            datetime.now().isoformat(timespec='seconds'),
+        ]
+
+        ws.append(values)
+        wb.save(file_path)
+        print(f"[Excel] 已写入: {video_info.get('url')}")
+
+        return True
+
+    except Exception as e:
+        print(f"[ERROR] 写入 Excel 失败: {e}")
         return False
-
-    values = [
-        sanitize_value(video_info.get("title", "")),
-        link,
-        sanitize_value(video_info.get("author", "")),
-        sanitize_value(video_info.get("author_id", "")),
-        to_int(video_info.get("views")),
-        to_int(video_info.get("danmaku")),
-        to_int(video_info.get("likes")),
-        to_int(video_info.get("coins")),
-        to_int(video_info.get("favorites")),
-        to_int(video_info.get("shares")),
-        sanitize_value(video_info.get("publish_date", "")),
-        to_int(video_info.get("duration")),
-        sanitize_value(video_info.get("video_desc", "")),
-        sanitize_value(video_info.get("author_desc", "")),
-        sanitize_value(video_info.get("tags", "")),
-        sanitize_value(video_info.get("video_aid", "")),
-        datetime.now().isoformat(timespec='seconds'),
-    ]
-
-    ws.append(values)
-    wb.save(file_path)
-    print(f"[Excel] 已写入视频信息: {link}")
-    return True

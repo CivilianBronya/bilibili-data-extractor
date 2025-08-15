@@ -74,7 +74,7 @@ pip install requests beautifulsoup4 openpyxl
 运行主程序：
 
 ```bash
-python main.py
+python gui_main.py
 ```
 - 自动创建BVID_list.txt(可以自行创建)
 - 自动创建并保存output.xlsx保存视频信息数据

@@ -1,0 +1,59 @@
+QWidget {
+    background-color: #2d2d2d;
+    color: white;
+}
+
+QPushButton {
+    background-color: #444;
+    color: white;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+QPushButton:hover {
+    background-color: #555;
+}
+
+/* 表格整体 */
+QTableWidget {
+    background-color: #2b2b2b;
+    color: white;
+    gridline-color: #555;
+}
+
+/* 表头（横向、纵向） */
+QHeaderView::section {
+    background-color: #3c3f41;
+    color: white;
+    padding: 4px;
+    border: 1px solid #555;
+    font-weight: bold;
+}
+
+/* 表格左上角按钮（交叉区域） */
+QTableCornerButton::section {
+    background-color: #3c3f41;
+    border: 1px solid #555;
+}
+
+/* 滚动条 */
+QScrollBar:vertical {
+    background: #3c3f41;
+    width: 12px;
+}
+QScrollBar::handle:vertical {
+    background: #555;
+    min-height: 20px;
+}
+
+/* 输入框 placeholder 样式 */
+QLineEdit {
+    background-color: #2b2b2b;
+    color: white;
+}
+QLineEdit:disabled {
+    background-color: #3c3f41;
+}
+QLineEdit::placeholder {
+    color: #666666; /* 提示文字 */
+}

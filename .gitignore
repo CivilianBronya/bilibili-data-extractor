@@ -5,7 +5,11 @@ __pycache__/
 .Python
 env/
 venv/
+cli/
+logs/*
 *.sqlite3
+output/
+!output/BVsampleData/
 output.xlsx
 .idea/
 .vscode/
